@@ -6,7 +6,7 @@ import requests
 from typing import List, Optional, Callable, Dict
 from tqdm.asyncio import tqdm
 from transformers import AutoTokenizer, PreTrainedTokenizerBase
-from .common import (
+from llm_api.common import (
     construct_fixedlength_dataset,
     get_request,
     async_request_openai_completions,
@@ -14,7 +14,7 @@ from .common import (
     RequestFuncInput,
     calculate_metrics,
 )
-from .report import print_benchmark, write_benchmark
+from llm_api.report import print_benchmark, write_benchmark
 
 
 def check_goodput_args(args: Namespace):

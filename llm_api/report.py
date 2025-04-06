@@ -6,7 +6,7 @@ from typing import Dict, List
 from rich.table import Table
 from rich.console import Console
 from dataclasses import dataclass, fields, asdict
-from .common import BenchmarkMetrics, RequestFuncOutput
+from llm_api.common import BenchmarkMetrics, RequestFuncOutput
 
 def print_benchmark(benchmark: BenchmarkMetrics):
     print(f"Benchmark Results")
