@@ -220,6 +220,7 @@ def construct_fixedlength_dataset(endpoint: str, input_length: int, tokenizer: P
             ignore_eos=True,
         )
         requests.append(req)
+    return requests
 
 def calculate_metrics(
     input_requests: List[Tuple[str, int, int]],
