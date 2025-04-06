@@ -111,7 +111,7 @@ def benchmark(args):
         args.model = args.tokenizer
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
     bench_requests = construct_fixedlength_dataset(
-        args.endpoint, args.input_length, tokenizer, args.num_prompts
+        args.endpoint, args.input_length, args.output_length, tokenizer, args.num_prompts
     )
     for req in bench_requests:
         req.model = args.model
@@ -161,6 +161,11 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--input-length",
+        type=int,
+        default=4096,
+    )
+    parser.add_argument(
+        "--output-length",
         type=int,
         default=4096,
     )

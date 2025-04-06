@@ -205,7 +205,7 @@ def construct_dataset(
             requests.append(req)
     return requests
 
-def construct_fixedlength_dataset(endpoint: str, input_length: int, tokenizer: PreTrainedTokenizerBase, size: int = -1):
+def construct_fixedlength_dataset(endpoint: str, input_length: int, output_length:int, tokenizer: PreTrainedTokenizerBase, size: int = -1):
     requests: List[RequestFuncInput] = []
     vocab = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", ".", ",", "!", "?"]
     for i in range(size):
@@ -215,7 +215,7 @@ def construct_fixedlength_dataset(endpoint: str, input_length: int, tokenizer: P
             prompt=prompt,
             api_url=endpoint + "v1/completions",
             prompt_len=len(tokenizer(prompt)["input_ids"]),
-            output_len=0,
+            output_len=output_length,
             model="",
             ignore_eos=True,
         )
